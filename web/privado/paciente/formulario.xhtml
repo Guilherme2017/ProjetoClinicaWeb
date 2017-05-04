@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/templates/template.xhtml">
+        <ui:define name="titulo"> Edição de Pacientes </ui:define>
+        <ui:define name="conteudo">
+            <h:form>
+                <p:growl/>
+                <p:panelGrid columns="2">
+                    <f:facet name="footer">
+                        <div align="center">
+                            <p:commandButton value="Cancelar" action="#{ControlePaciente.cancelar()}" ajax="false" icon="ui-icon-close"/>
+                            <p:commandButton value="Salvar" action="#{ControlePaciente.salvar()}" ajax="false"/>
+                        </div>
+                    </f:facet>
+                    <p:outputLabel value="ID"/>
+                    <p:inputText value="#{ControlePaciente.objeto.id}" size="10" readonly="true"/>
+                    <p:outputLabel value="Nome"/>
+                    <p:inputText value="#{ControlePaciente.objeto.nome}" size="40" maxlength="40" placeholder="Obrigatório"/>
+                    <p:outputLabel value="Nascimento"/>
+                    <p:calendar  
+			 value="#{ControlePaciente.objeto.nascimento}"                                      
+			 pattern="dd/MM/yyyy"
+			 locale="pt_BR" size="12" mask="true">
+	                 <f:converter converterId="converterCalendar"/>
+                    </p:calendar>
+                    <p:outputLabel value="Telefone"/>
+                    <p:inputText value="#{ControlePaciente.objeto.telefone}" size="40" maxlength="40" placeholder="Obrigatório"/>
+                    <p:outputLabel value="Sexo"/>
+                    <p:inputText value="#{ControlePaciente.objeto.sexo}" size="40" maxlength="40" placeholder="Obrigatório"/>
+                    <p:outputLabel value="Historico"/>
+                    <p:inputText value="#{ControlePaciente.objeto.historico}" size="40" maxlength="40" placeholder="Obrigatório"/>
+                    <p:outputLabel value="Peso"/>
+                    <p:inputText value="#{ControlePaciente.objeto.peso}" size="40" maxlength="40" placeholder="Obrigatório"/>
+                    <p:outputLabel value="Altura"/>
+                    <p:inputText value="#{ControlePaciente.objeto.altura}" size="40" maxlength="40" placeholder="Obrigatório"/>
+                </p:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+
